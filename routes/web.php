@@ -3,6 +3,7 @@
 use App\Http\Controllers\FarmController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return Inertia::render('Home');
 });
 
-Route::resource('/farms', FarmController::class);
-
-Route::resource('/users', UserController::class);
+Route::get('/about', function () {
+    return Inertia::render('About');
+});
