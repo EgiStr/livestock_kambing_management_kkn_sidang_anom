@@ -21,7 +21,10 @@
         "@inertiajs/inertia-react": "^0.8.1",
         "@inertiajs/react": "^2.0.0",
         "@vitejs/plugin-react": "^4.3.4",
+        "lucide-react": "^0.469.0",
         "react": "^19.0.0",
-        "react-dom": "^19.0.0"
+        "react-dom": "^19.0.0",
+        "react-feather": "^2.0.10",
+        "react-router-dom": "^7.1.1"
     }
 }
