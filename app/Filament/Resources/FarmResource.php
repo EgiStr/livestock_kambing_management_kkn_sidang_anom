@@ -59,7 +59,7 @@ class FarmResource extends Resource
                                 Forms\Components\Textarea::make('location')
                                     ->required()
                                     ->columnSpanFull(),
-                                    Grid::make()
+                                Grid::make()
                                     ->schema([
                                         TextInput::make('latitude')
                                             ->numeric()
@@ -69,7 +69,7 @@ class FarmResource extends Resource
                                             ->minValue(-90)
                                             ->maxValue(90)
                                             ->step('0.00000001'), // 8 decimal places
-                        
+
                                         TextInput::make('longitude')
                                             ->numeric()
                                             ->required()
@@ -80,33 +80,20 @@ class FarmResource extends Resource
                                             ->step('0.00000001'), // 8 decimal places
                                     ])
                                     ->columns(2),
-                        
-                                Map::make('location_map')
+
+                                Map::make('coordinates')
                                     ->label('Location')
+                                    ->liveLocation(true)
+                                    ->afterStateUpdated(    function (Set $set, ?array $state): void {
+                                        $set('latitude',  $state['lat']);
+                                        $set('longitude', $state['lng']);
+                                    })
                                     ->columnSpanFull()
                                     ->defaultLocation(latitude: -5.2962, longitude: 105.4478)
                                     ->clickable(true)
                                     ->showMarker()
                                     ->showZoomControl()
                                     ->draggable()
-                                    ->afterStateUpdated(function ($state, Set $set): void {
-                                        if ($state) {
-                                            // Ensure 8 decimal precision
-                                            $lat = number_format((float)$state['lat'], 8, '.', '');
-                                            $lng = number_format((float)$state['lng'], 8, '.', '');
-                                            
-                                            $set('latitude', $lat);
-                                            $set('longitude', $lng);
-                                        }
-                                    })
-                                    ->afterStateHydrated(function ($state, $record, Set $set): void {
-                                        if ($record) {
-                                            $set('location_map', [
-                                                'lat' => (float)$record->latitude,
-                                                'lng' => (float)$record->longitude,
-                                            ]);
-                                        }
-                                    }),
 
                             ])
                             ->columns(2)
@@ -115,11 +102,28 @@ class FarmResource extends Resource
 
                 Forms\Components\Group::make()
                     ->schema([
-                        Forms\Components\Section::make('Status')
+                        Forms\Components\Section::make('Ukuran Kandang')
                             ->schema([
-                                Forms\Components\Placeholder::make('createdAt')
-                                    ->label('Created at')
-                                    ->content(fn(?Farm $record): string => $record?->createdAt?? 'N/A'),
+                                Forms\Components\TextInput::make('pan_width')
+                                    ->numeric()
+                                    ->required()
+                                    ->minValue(0)
+                                    ->suffix('m')
+                                    ->columnSpan(2),
+
+                                Forms\Components\TextInput::make('pan_height')
+                                    ->numeric()
+                                    ->required()
+                                    ->minValue(0)
+                                    ->suffix('m')
+                                    ->columnSpan(2),
+
+                                Forms\Components\TextInput::make('pan_length')
+                                    ->numeric()
+                                    ->required()
+                                    ->minValue(0)
+                                    ->suffix('m')
+                                    ->columnSpan(2),
                             ])
                     ])
                     ->columnSpan(['lg' => 1]),
