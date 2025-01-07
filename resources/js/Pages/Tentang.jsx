@@ -21,23 +21,19 @@ const About = () => {
           </div>
 
           {/* Description Section */}
-          <div className="text-gray-700 text-base leading-relaxed">
+          <div className="text-gray-700 text-semibold leading-relaxed">
             <p className="text-justify">
-              Pusat Inovasi ITERA berkomitmen untuk menghadirkan berbagai
-              program unggulan yang dirancang khusus untuk memfasilitasi dan
-              mendukung pengembangan ide-ide kreatif serta inovatif. Dengan
-              fokus pada inovasi, kami berupaya menciptakan lingkungan yang
-              kondusif bagi lahirnya solusi-solusi terobosan. Kami bertekad
-              untuk membangun ekosistem inovasi yang berkelanjutan melalui
-              pelaksanaan tugas pokok kami serta pilar-pilar pembangunan yang
-              kokoh dan saling berhubungan. Dalam upaya ini, kami memberikan
-              dukungan penuh terhadap munculnya ide-ide brilian serta solusi
-              nyata yang dapat memberikan manfaat langsung kepada masyarakat.
-              Dengan semangat kolaborasi dan kreativitas, ayo bersama-sama kita
-              mengembangkan dan mewujudkan ide-ide yang akan membawa perubahan
-              positif dan menciptakan dampak yang signifikan. Mari berinovasi
-              dan menjadikan dunia tempat yang lebih baik melalui solusi yang
-              inovatif dan berkelanjutan.
+            Alamat Desa Sindang Anom : Jl. Pasar Desa Sindang Anom, Kecamatan Sekampung Udik Kabupaten Lampung Timur, 
+            Provinsi Lampung, Kode Pos 34183
+            </p>
+            <p className="text-justify mt-3">
+            Secara topografi, wilayah Desa Sindang Anom, Kecamatan Sekampung Udik  Kabupaten Lampung Timur Propinsi Lampung  merupakan dataran rendah dengan ketinggian tempat 50 m dari permukaan laut. Desa Sindang Anom memiliki  struktur  tanah yang subur untuk pertanian dengan jenis tanah sebagian  besar merupakan Podosolik M.K. Secara Klimatologis Desa 
+            Sindang Anom  memiliki iklim tropis yang mengalami dua musim yakni musim kemarau dan  musim penghujan. Suhu udara 
+            berkisar antara 30o C sampai dengan 32oC.  Penggunaan lahan di Desa Sindang Anom secara luas merupakan persawahan  
+            dan pekarangan/tegalan. Luas penggunaan untuk lahan sawah seluas 422 Ha  dan luas lahan untuk digunakan Tegalan seluas 1138 Ha.
+            </p>
+            <p className="text-justify mt-3">
+              Berdasarkan data registrasi tahun 2022, kelembagaan petani Desa  Sindang Anom terdiri dari 1 Gapoktan dengan 35 Kelompok tani. Semua  kelompok tani terklasifikasi sebagai kelompok tani kelas pemula dan  kelas lanjut.
             </p>
           </div>
         </div>

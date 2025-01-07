@@ -111,7 +111,7 @@ const DetailProfil = () => {
                   </h2>
 
                   <Link
-                    to="/detailternak"
+                    href="/detailternak"
                     className="text-green text-sm font-semibold hover:underline flex items-center"
                   >
                     Lihat Detail
