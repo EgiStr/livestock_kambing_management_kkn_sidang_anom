@@ -25,7 +25,7 @@ class ListIotSensors extends ListRecords
 
         if (!$user->isSuperAdmin()) {
             $model = $model->whereHas('farm', function ($query) use ($user) {
-                $query->where('users_id', '=', $user->id);
+                $query->where('user_id', '=', $user->id);
             });
         }
 

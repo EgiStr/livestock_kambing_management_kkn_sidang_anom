@@ -15,7 +15,7 @@ class FarmController extends Controller
      */
     public function index(): Response
     {
-        $farms = Farm::with(['users', 'iot_sensors'])->where('users_id', Auth::id())->get();
+        $farms = Farm::with(['user', 'iot_sensors'])->where('user_id', Auth::id())->get();
         return Inertia::render('Peternakan', [
             'farms' => $farms,
         ]);
@@ -45,7 +45,7 @@ class FarmController extends Controller
             'latitude' => 'required|numeric|between:-90,90',
         ]);
 
-        $validated['users_id'] = Auth::id();
+        $validated['user_id'] = Auth::id();
 
         Farm::create($validated);
 
@@ -56,12 +56,18 @@ class FarmController extends Controller
      * Display the specified resource.
      */
     public function show(Farm $farm): Response
-    {
-        $this->authorize('view', $farm);
-        return Inertia::render('DetailTernak', [
-            'farm' => $farm,
-        ]);
-    }
+{
+    $this->authorize('view', $farm);
+
+    // Load related users and iot_sensors
+    $farmWithRelations = Farm::with(['user', 'iot_sensors'])
+        ->where('id', $farm->id)
+        ->first();
+
+    return Inertia::render('DetailTernak', [
+        'farm' => $farmWithRelations,
+    ]);
+}
 
     /**
      * Show the form for editing the specified resource.

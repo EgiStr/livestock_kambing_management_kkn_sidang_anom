@@ -42,7 +42,7 @@ class ApiFarmController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'users_id' => 'required|uuid|exists:users,id',
+            'user_id' => 'required|uuid|exists:users,id',
             'name' => 'required|string|max:255',
             'location' => 'required|string',
             'capacity' => 'required|integer|min:0',
@@ -72,7 +72,7 @@ class ApiFarmController extends Controller
     public function update(Request $request, Farm $farm)
     {
         $validated = $request->validate([
-            'users_id' => 'required|uuid|exists:users,id',
+            'user_id' => 'required|uuid|exists:users,id',
             'name' => 'required|string|max:255',
             'location' => 'required|string',
             'capacity' => 'required|integer|min:0',

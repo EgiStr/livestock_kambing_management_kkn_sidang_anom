@@ -1,7 +1,7 @@
 import { Link } from "@inertiajs/inertia-react";
 import React from "react";
 
-const TernakHome = () => {
+const TernakHome = ({farms}) => {
   const data = [
     {
       id: 1,

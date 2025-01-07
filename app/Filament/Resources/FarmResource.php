@@ -38,7 +38,7 @@ class FarmResource extends Resource
                                     ->required()
                                     ->maxLength(255),
 
-                                Forms\Components\Hidden::make('users_id')
+                                Forms\Components\Hidden::make('user_id')
                                     ->default(fn() => auth()->id())
                                     ->required(),
 

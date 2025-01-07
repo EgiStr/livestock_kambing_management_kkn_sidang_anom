@@ -27,9 +27,10 @@ Route::get('/tentang', function () {
 Route::get('/peternakan', [FarmController::class, 'index'])->name('Peternakan');
 Route::get('/detailternak/{farm}', [FarmController::class, 'show'])->name('DetailTernak');
 
-Route::get('/profil', function () {
-    return Inertia::render('Profil');
-});
+Route::get('/profil', [UserController::class, 'index'])->name('Profil');
+Route::get('/detailprofil/{user}', [UserController::class, 'show'])->name('DetailProfil');
+
+
 Route::get('/detailprofil', function () {
     return Inertia::render('DetailProfil');
 });

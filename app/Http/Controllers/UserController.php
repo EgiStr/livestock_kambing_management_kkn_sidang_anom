@@ -55,8 +55,12 @@ class UserController extends Controller
      */
     public function show(User $user): Response
     {
-        return Inertia::render('users/show', [
-            'user' => $user,
+        $UserWithRelations = User::with(['farms'])
+        ->where('id', $user->id)
+        ->first();
+        
+        return Inertia::render('DetailProfil', [
+            'user' => $UserWithRelations,
         ]);
     }
 
