@@ -15,7 +15,7 @@ return new class extends Migration
 
         Schema::create('farms', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('users_id')->constrained('users',"id","farms_users_id")->index();
+            $table->foreignUuid('users_id')->constrained('users', "id", "farms_users_id")->index();
             $table->string('name');
             $table->text('location');
             $table->integer('capacity');
@@ -24,6 +24,11 @@ return new class extends Migration
             $table->boolean('is_active');
             $table->decimal('longitude', 11, 8);
             $table->decimal('latitude', 10, 8);
+            // meta data pan width and height and length
+            $table->decimal('pan_width');
+            $table->decimal('pan_height');
+            $table->decimal('pan_length');
+
             $table->timestamp('createdAt')->index()->useCurrent();
         });
 
