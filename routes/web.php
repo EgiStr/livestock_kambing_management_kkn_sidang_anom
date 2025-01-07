@@ -24,18 +24,12 @@ Route::get('/tentang', function () {
     return Inertia::render('Tentang');
 });
 
-Route::get('/peternakan', function () {
-    return Inertia::render('Peternakan');
-});
-
-Route::get('/detailternak', function () {
-    return Inertia::render('DetailTernak');
-});
+Route::get('/peternakan', [FarmController::class, 'index'])->name('Peternakan');
+Route::get('/detailternak/{farm}', [FarmController::class, 'show'])->name('DetailTernak');
 
 Route::get('/profil', function () {
     return Inertia::render('Profil');
 });
-
 Route::get('/detailprofil', function () {
     return Inertia::render('DetailProfil');
 });

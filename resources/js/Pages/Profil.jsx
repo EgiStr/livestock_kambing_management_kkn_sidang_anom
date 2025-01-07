@@ -72,7 +72,7 @@ const Profil = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-5 md:px-[10px]">
-                  {data.map((item) => (
+              {data.map((item) => (
                     <div
                       key={item.id}
                       className="bg-white rounded-lg shadow-md overflow-hidden"

@@ -17,7 +17,7 @@ class UserController extends Controller
     public function index(): Response
     {
         $users = User::with('farms')->get();
-        return Inertia::render('users/Index', [
+        return Inertia::render('Profil', [
             'users' => $users,
         ]);
     }

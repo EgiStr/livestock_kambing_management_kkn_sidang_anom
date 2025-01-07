@@ -15,8 +15,8 @@ class FarmController extends Controller
      */
     public function index(): Response
     {
-        $farms = Farm::with(['user', 'iotSensors'])->where('users_id', Auth::id())->get();
-        return Inertia::render('Index', [
+        $farms = Farm::with(['users', 'iot_sensors'])->where('users_id', Auth::id())->get();
+        return Inertia::render('Peternakan', [
             'farms' => $farms,
         ]);
     }
@@ -58,8 +58,7 @@ class FarmController extends Controller
     public function show(Farm $farm): Response
     {
         $this->authorize('view', $farm);
-
-        return Inertia::render('farms/show', [
+        return Inertia::render('DetailTernak', [
             'farm' => $farm,
         ]);
     }
