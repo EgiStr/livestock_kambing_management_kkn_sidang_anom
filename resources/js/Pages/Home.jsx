@@ -4,7 +4,7 @@ import Layout from "../Layouts/Layout";
 import Hero from "../component/Hero";
 import TentangHome from "../component/TentangHome";
 import StokPage from "../component/StrukturOrganisasi";
-import TernalHome from "../component/TernakHome";
+import TernakHome from "../component/TernakHome";
 
 const Home = () => {
   return (
@@ -13,7 +13,7 @@ const Home = () => {
         <Layout>
           <TentangHome/>
           <StokPage/>
-          <TernalHome/>       
+          <TernakHome/>       
         </Layout>
     </>
     

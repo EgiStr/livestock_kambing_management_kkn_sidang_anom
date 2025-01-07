@@ -20,6 +20,22 @@ Route::get('/', function () {
     return Inertia::render('Home');
 });
 
-Route::get('/about', function () {
-    return Inertia::render('About');
+Route::get('/tentang', function () {
+    return Inertia::render('Tentang');
+});
+
+Route::get('/peternakan', function () {
+    return Inertia::render('Peternakan');
+});
+
+Route::get('/detailternak', function () {
+    return Inertia::render('DetailTernak');
+});
+
+Route::get('/profil', function () {
+    return Inertia::render('Profil');
+});
+
+Route::get('/detailprofil', function () {
+    return Inertia::render('DetailProfil');
 });

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Menu, X } from "react-feather";
 import Logo from '../../../public/images/Logo.png'
 
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -38,7 +39,7 @@ const Navbar = () => {
 
         {/* Tombol Login */}
         <div className="hidden lg:flex">
-          <Link href={"/login"}>
+          <Link href={"/admin"}>
             <button className="bg-green hover:bg-HoverGreen text-white px-6 py-2 rounded-full transition duration-200">
               Masuk
             </button>
@@ -76,7 +77,7 @@ const Navbar = () => {
           <Link href={"/profil"} className="text-black hover:text-gray-600 transition duration-200">
             Profil Pemilik Ternak
           </Link>
-          <Link href={"/login"}>
+          <Link href={"/admin"}>
             <button className="bg-green hover:bg-HoverGreen text-white px-4 py-2 rounded-full transition duration-200">
               Masuk
             </button>

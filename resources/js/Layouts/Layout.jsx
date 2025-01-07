@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
             <Navbar/>
 
             {/* Main Content */}
-            <main className="py-10">
+            <main className="py-10 min-h-screen">
                 {children} 
             </main>
 

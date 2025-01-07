@@ -1,7 +1,7 @@
 import { Link } from "@inertiajs/inertia-react";
 import React from "react";
 
-const TernalHome = () => {
+const TernakHome = () => {
   const data = [
     {
       id: 1,
@@ -79,7 +79,8 @@ const TernalHome = () => {
 
               {/* Detail Link */}
               <Link 
-                href="#"
+                href="/detailternak"
+                // href={`/ternak/${item.id}`}
                 className="text-green text-sm font-semibold hover:underline flex items-center"
               >
                 Lihat Detail
@@ -89,7 +90,7 @@ const TernalHome = () => {
         ))}
       </div>
       <div className="flex justify-center md:justify-center mt-10">
-        <Link href={"/detail"}>
+        <Link href={"/peternakan"}>
             <button className="bg-green hover:bg-HoverGreen text-white font-semibold px-6 py-2 rounded-md transition duration-200">
                 Lihat Selengkapnya
             </button>
@@ -99,4 +100,4 @@ const TernalHome = () => {
   );
 };
 
-export default TernalHome;
+export default TernakHome;

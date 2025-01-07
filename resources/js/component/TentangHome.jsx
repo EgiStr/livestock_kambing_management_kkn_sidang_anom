@@ -19,7 +19,7 @@ const TentangHome = () => {
             Desa Sindang Anom berkomitmen untuk menghadirkan berbagai program unggulan yang dirancang khusus untuk memfasilitasi dan mendukung pengembangan ide-ide kreatif serta inovatif di tingkat desa. Dengan fokus pada pemberdayaan masyarakat, kami berupaya menciptakan lingkungan yang kondusif bagi lahirnya solusi-solusi terobosan untuk meningkatkan kesejahteraan warga.
             </p>
             <div className="flex justify-center md:justify-start mt-5">
-                <Link href={"/login"}>
+                <Link href={"/tentang"}>
                     <button className="bg-green hover:bg-HoverGreen text-white font-semibold px-6 py-2 rounded-md transition duration-200">
                         Lihat Selengkapnya
                     </button>
