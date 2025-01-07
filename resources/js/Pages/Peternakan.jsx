@@ -44,7 +44,7 @@ const Ternak = ({ farms }) => {
                         <span className="text-white rounded-full mr-1 flex items-center justify-center text-xs">
                           <User size={16} />
                         </span>
-                        {farm.users ? farm.users.fullname : "Tidak ada data pengguna"}
+                        {farm.user ? farm.user.fullname : "Tidak ada data pengguna"}
                       </div>
                       <div className="text-yellow-500 flex space-x-1">
                         {Array(5)
@@ -54,11 +54,6 @@ const Ternak = ({ farms }) => {
                           ))}
                       </div>
                     </div>
-
-                    {/* Title */}
-                    <h2 className="text-gray-800 text-sm font-semibold mb-4">
-                      {farm.name}
-                    </h2>
 
                     <div className="text-sm text-gray-600 mb-4">
                       <p>{farm.description ? farm.description.slice(0, 50) + (farm.description.length > 100 ? '...' : '') : "Tidak ada deskripsi"}</p>

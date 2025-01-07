@@ -24,7 +24,7 @@ class ListFarms extends ListRecords
         $model = (new (static::$resource::getModel()))->newQuery();
 
         if (!$user->isSuperAdmin()) {
-            $model = $model->where('users_id', '=', $user->id);
+            $model = $model->where('user_id', '=', $user->id);
         }   
 
         return $model;

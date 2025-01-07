@@ -11,7 +11,7 @@ class Farm extends Model
     use HasUuids;
 
     protected $fillable = [
-        'users_id',
+        'user_id',
         'name',
         'location',
         'capacity',
@@ -25,7 +25,7 @@ class Farm extends Model
     // dont fill updatedAt and createdAt
     public $timestamps = false;
 
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }

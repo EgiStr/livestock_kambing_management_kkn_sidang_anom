@@ -1,87 +1,59 @@
 import React from "react";
 import Layout from "../Layouts/Layout";
 import { Link } from "@inertiajs/inertia-react";
+import { User } from "lucide-react";
 
 
-const DetailProfil = () => {
-  const data = [
-    {
-      id: 1,
-      author: "Jumali",
-      title:
-        "Formula Inokulan Bakteri untuk Peningkatan Produktivitas Kambing pada Lahan Kering Asam (pH > 4,0)",
-    },
-    {
-      id: 2,
-      author: "Jumali",
-      title:
-        "Formula Inokulan Bakteri untuk Peningkatan Produktivitas Kambing pada Lahan Kering Asam (pH > 4,0)",
-    },
-    {
-      id: 3,
-      author: "Jumali",
-      title:
-        "Formula Inokulan Bakteri untuk Peningkatan Produktivitas Kambing pada Lahan Kering Asam (pH > 4,0)",
-    },
-    {
-      id: 4,
-      author: "Jumali",
-      title:
-        "Formula Inokulan Bakteri untuk Peningkatan Produktivitas Kambing pada Lahan Kering Asam (pH > 4,0)",
-    },
-  ];
-
-  const data1 = {
-    name: "Jumali",
-    contactPerson: "Bpk Jumali",
-    phone: "085858763990",
-    description:
-      "OBH COMBI ANAK BATUK FLU RASA JERUK 60 anak seperti demam, sakit kepala, hidung tersumbat dan bersin-bersin. Beli OBH COMBI ANAK BATUK FLU RASA JERUK 60ML di apotek online K24Klik dan dapatkan manfaatnya.",
-    jumlahKambing: 5,
-    cctvImage: "https://placehold.co/400x300",
-    kandangImage: "https://placehold.co/1000x900",
-  };
-
+const DetailProfil = ({ user }) => {
+  console.log(user)
   return (
     <Layout>
-      <div className="min-h-screen p-6 md:p-12 mt-20 px-5 md:px-[150px]">
+      <div className="min-h-screen p-3 md:p-12 mt-10 px-2 md:px-[180px]">
         {/* Profil Section */}
-        <div className="flex justify-between gap-8">
-          {/* Image Section */}
-          <div className="w-full md:w-1/3">
+        <div className="max-w-3xl mx-auto p-4">
+          <div className="flex flex-col md:flex-row md:gap-12 bg-white rounded-lg p-6">
+            {/* Profile Image */}
             <img
-              src={data1.kandangImage}
-              alt="Kandang"
-              className="rounded-lg shadow-md w-full"
-            />
-          </div>
-
-          {/* Info Section */}
-          <div className="md:w-2/3 space-y-3">
-            <h1 className="text-3xl font-bold text-HoverGreen">{data1.name}</h1>
-
-            <div>
-              <h2 className="text-lg font-semibold text-green">Deskripsi</h2>
-              <p className="text-gray-600 mb-5">{data1.description}</p>
-              <p className="text-green font-bold">Jumlah Kandang : <span className="text-black">4</span></p>
-              <p className="text-green font-bold">Alamat : <span className="text-black">Dusun 10</span></p> 
+            // src={user.kandangImage}
+            src="https://placehold.co/300x200"
+            alt="Kandang"
+            className="rounded-lg w-full"
+          />
+            
+            {/* Profile Information */}
+            <div className="space-y-4 mt-6 md:mt-0">
+              <h2 className="text-2xl font-bold text-green">{user.fullname}</h2>
+              <div className="space-y-2 w-[200px]">
+                <div>
+                  <span className="text-green font-semibold">Bio</span>
+                  <p className="">
+                    {user.bio}
+                  </p>
+                </div>
+                
+                <div>
+                  <p className="text-green font-bold">Jumlah Kandang : <span className="text-black">{user.farms.length}</span></p>
+                </div>
+                <Link href="/wa">
+                  <button className="flex justify-end text-sm text-white bg-green px-4 py-2 mt-20 rounded-md font-semibold">
+                    Hubungi : {user.phone_number}
+                  </button>
+                </Link>
+              </div>
             </div>
-            <Link href={"/admin"}>
-                <button className="bg-green hover:bg-HoverGreen text-white px-4 py-2 rounded-md transition duration-200 mt-10">
-                    Hubungi : {data1.phone}
-                </button>
-            </Link>
           </div>
         </div>
 
+
+
         {/* Peternakan Section */}
-        <div className="mt-[140px] text-center">
-          <h1 className="font-bold text-2xl text-green">Peternakan Bapak Jumali</h1>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-10">
-            {data.map((item) => (
+        <div className="mt-20 text-center">
+          <h1 className="font-bold text-2xl text-green">Peternakan Bapak {user.fullname}</h1>
+          <div className="grid grid-cols-3 gap-6 mt-20">
+            {user.farms.map((item) => (
               <div
                 key={item.id}
-                className="bg-white rounded-lg shadow-md overflow-hidden"
+                className="bg-white rounded-md shadow-md overflow-hidden"
               >
                 {/* Image Placeholder */}
                 <div className="bg-gray-200">
@@ -89,13 +61,13 @@ const DetailProfil = () => {
                 </div>
 
                 {/* Card Content */}
-                <div className="p-4">
+                <div className="p-2">
                   <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center text-sm text-green font-bold">
-                      <span className="text-white rounded-full w-6 h-6 flex items-center justify-center text-xs mr-1">
-                        👤
+                    <div className="flex items-center text-sm text-green font-bold bg-green px-3 py-1 rounded-full text-white mt-2">
+                      <span className="text-white rounded-full mr-1 flex items-center justify-center text-xs">
+                        <User size={16} />
                       </span>
-                      {item.author}
+                      {user.fullname}
                     </div>
                     <div className="text-yellow-500 flex space-x-1">
                       {Array(5)
@@ -106,13 +78,17 @@ const DetailProfil = () => {
                     </div>
                   </div>
 
-                  <h2 className="text-gray-800 text-left text-sm font-semibold mb-4">
-                    {item.title}
+                  <h2 className="text-gray-800 text-left text-sm font-semibold mb-4 mt-3">
+                    {item.description}
+                  </h2>
+
+                  <h2 className="text-green text-left -mt-2 text-sm font-semibold mb-4">
+                    Kapasitas : <span className="text-black">{item.capacity} Kepala</span>
                   </h2>
 
                   <Link
-                    href="/detailternak"
-                    className="text-green text-sm font-semibold hover:underline flex items-center"
+                    href={`/detailternak/${item.id}`}
+                    className="text-green mt-6 text-sm font-semibold hover:underline flex items-center"
                   >
                     Lihat Detail
                   </Link>
@@ -120,6 +96,7 @@ const DetailProfil = () => {
               </div>
             ))}
           </div>
+
         </div>
       </div>
     </Layout>
