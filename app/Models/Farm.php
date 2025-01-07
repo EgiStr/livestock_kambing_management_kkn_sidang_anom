@@ -20,6 +20,9 @@ class Farm extends Model
         'is_active',
         'longitude',
         'latitude',
+        'pan_width',
+        'pan_height',
+        'pan_length',
     ];
 
     // dont fill updatedAt and createdAt
