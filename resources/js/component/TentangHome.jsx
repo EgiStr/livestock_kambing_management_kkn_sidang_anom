@@ -27,7 +27,7 @@ const TentangHome = () => {
             </div>
           </div>
           <div className="md:w-1/2 flex justify-center md:justify-end mt-10">
-            <img src={Image} alt="image" className="w-[55%] h-[85%]"/>
+            <img src={Image} alt="image" className="w-[50%] h-[85%]"/>
           </div>
         </div>
       </div>

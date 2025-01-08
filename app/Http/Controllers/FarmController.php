@@ -21,6 +21,14 @@ class FarmController extends Controller
         ]);
     }
 
+    public function home(): Response
+    {
+        $farms = Farm::with(['user', 'iot_sensors'])->where('user_id', Auth::id())->get();
+        return Inertia::render('Home', [
+            'farms' => $farms,
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -57,8 +65,6 @@ class FarmController extends Controller
      */
     public function show(Farm $farm): Response
 {
-    $this->authorize('view', $farm);
-
     // Load related users and iot_sensors
     $farmWithRelations = Farm::with(['user', 'iot_sensors'])
         ->where('id', $farm->id)

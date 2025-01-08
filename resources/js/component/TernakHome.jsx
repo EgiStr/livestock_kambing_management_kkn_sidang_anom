@@ -2,32 +2,7 @@ import { Link } from "@inertiajs/inertia-react";
 import React from "react";
 
 const TernakHome = ({farms}) => {
-  const data = [
-    {
-      id: 1,
-      author: "Jumali",
-      title:
-        "Formula Inokulan Bakteri untuk Peningkatan Produktivitas Kambing pada Lahan Kering Asam (pH > 4,0)",
-    },
-    {
-      id: 2,
-      author: "Jumali",
-      title:
-        "Formula Inokulan Bakteri untuk Peningkatan Produktivitas Kambing pada Lahan Kering Asam (pH > 4,0)",
-    },
-    {
-      id: 3,
-      author: "Jumali",
-      title:
-        "Formula Inokulan Bakteri untuk Peningkatan Produktivitas Kambing pada Lahan Kering Asam (pH > 4,0)",
-    },
-    {
-      id: 4,
-      author: "Jumali",
-      title:
-        "Formula Inokulan Bakteri untuk Peningkatan Produktivitas Kambing pada Lahan Kering Asam (pH > 4,0)",
-    },
-  ];
+  console.log(farms)
 
   return (
     <div className="bg-gray-100 min-h-screen py-10 mt-20">
@@ -43,7 +18,7 @@ const TernakHome = ({farms}) => {
 
       {/* Card Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-5 md:px-[100px]">
-        {data.map((item) => (
+        {farms.map((item) => (
           <div
             key={item.id}
             className="bg-white rounded-lg shadow-md overflow-hidden"
@@ -61,7 +36,7 @@ const TernakHome = ({farms}) => {
                   <span className="text-white rounded-full w-6 h-6 flex items-center justify-center text-xs mr-1">
                     👤
                   </span>
-                  {item.author}
+                  {item.name}
                 </div>
                 <div className="text-yellow-500 flex space-x-1">
                   {Array(5)
@@ -74,7 +49,7 @@ const TernakHome = ({farms}) => {
 
               {/* Title */}
               <h2 className="text-gray-800 text-sm font-semibold mb-4">
-                {item.title}
+                {item.description}
               </h2>
 
               {/* Detail Link */}
