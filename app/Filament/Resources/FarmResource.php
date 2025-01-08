@@ -141,7 +141,7 @@ class FarmResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('users.fullname')
+                Tables\Columns\TextColumn::make('user.fullname')
                     ->searchable()
                     ->sortable()
                     ->label('Owner'),
@@ -161,10 +161,6 @@ class FarmResource extends Resource
             ])
             ->defaultSort('createdAt', 'desc')
             ->filters([
-                Tables\Filters\SelectFilter::make('user')
-                    ->relationship('users', 'fullname')
-                    ->searchable()
-                    ->preload(),
                 Tables\Filters\TernaryFilter::make('is_active')
                     ->label('Active Status'),
             ])
@@ -201,14 +197,14 @@ class FarmResource extends Resource
             'name',
             'location',
             'description',
-            'users.fullname',
+            'user.fullname',
         ];
     }
 
     public static function getGlobalSearchResultDetails(Model $record): array
     {
         return [
-            'Owner' => $record->users->fullname,
+            'Owner' => $record->user->fullname,
             'Location' => $record->location,
             'Capacity' => $record->capacity,
         ];

@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('farms', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('user_id')->constrained('users',"id","farms_users_id")->index();
-            $table->foreignUuid('users_id')->constrained('users', "id", "farms_users_id")->index();
             $table->string('name');
             $table->text('location');
             $table->integer('capacity');
