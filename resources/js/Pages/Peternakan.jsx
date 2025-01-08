@@ -7,6 +7,7 @@ import { User } from 'lucide-react';
 
 
 const Ternak = ({ farms }) => {
+  console.log(farms)
   return (
     <>
       <Navbar />
@@ -25,22 +26,23 @@ const Ternak = ({ farms }) => {
               {farms.map((farm) => (
                 <div
                   key={farm.id}
-                  className="bg-white rounded-lg shadow-md overflow-hidden"
+                  className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col"
                 >
                   {/* Image Placeholder */}
                   <div className="bg-gray-200">
-                    <img 
-                      // src={farm.image_url} 
-                      src="https://placehold.co/600x400" 
+                    <img
+                      // src={farm.image_url}
+                      src="https://placehold.co/600x400"
                       className="w-full h-[200px] object-cover"
+                      alt="Farm"
                     />
                   </div>
 
                   {/* Card Content */}
-                  <div className="p-4">
+                  <div className="p-4 flex flex-col flex-grow">
                     {/* Author and Rating */}
                     <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center text-sm text-green font-bold bg-green px-3 py-1 rounded-full text-white">
+                      <div className="flex items-center text-sm text-white font-bold bg-green px-3 py-1 rounded-full">
                         <span className="text-white rounded-full mr-1 flex items-center justify-center text-xs">
                           <User size={16} />
                         </span>
@@ -55,18 +57,28 @@ const Ternak = ({ farms }) => {
                       </div>
                     </div>
 
-                    <div className="text-sm text-gray-600 mb-4">
-                      <p>{farm.description ? farm.description.slice(0, 50) + (farm.description.length > 100 ? '...' : '') : "Tidak ada deskripsi"}</p>
-                      <p className="mt-1 font-bold text-HoverGreen">Kapasitas : {farm.capacity} Kepala</p>
-                      {farm.phone_number}
+                    {/* Description and Capacity */}
+                    <div className="text-sm text-gray-600 mb-4 flex-grow">
+                      <p>
+                        {farm.description
+                          ? farm.description.slice(0, 50) +
+                            (farm.description.length > 100 ? "..." : "")
+                          : "Tidak ada deskripsi"}
+                      </p>
+                      <p className="mt-1 font-bold text-HoverGreen">
+                        Kapasitas: {farm.capacity} Kepala
+                      </p>
                     </div>
 
                     {/* Detail Link */}
-                    <Link
-                      href={`/detailternak/${farm.id}`}
-                      className="text-green text-sm font-semibold hover:underline flex items-center mt-5">
-                      Lihat Detail 
-                    </Link>
+                    <div className="mt-auto">
+                      <Link
+                        href={`/detailternak/${farm.id}`}
+                        className="text-green text-sm font-semibold hover:underline flex items-center"
+                      >
+                        Lihat Detail
+                      </Link>
+                    </div>
                   </div>
                 </div>
               ))}

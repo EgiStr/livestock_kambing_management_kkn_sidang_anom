@@ -161,7 +161,7 @@ class FarmResource extends Resource
             ])
             ->defaultSort('createdAt', 'desc')
             ->filters([
-                Tables\Filters\SelectFilter::make('users')
+                Tables\Filters\SelectFilter::make('user')
                     ->relationship('users', 'fullname')
                     ->searchable()
                     ->preload(),

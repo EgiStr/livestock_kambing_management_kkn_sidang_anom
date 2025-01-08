@@ -3,7 +3,7 @@ import Image from '../../../public/images/userNotFound.png'
 
 const StokPage = () => {
   return (
-    <div className="min-h-screen bg-green flex flex-col items-center mt-[150px] p-[30px] pb-20">
+    <div className="min-h-screen bg-green flex flex-col items-center mt-[100px] p-[30px] pb-20">
       {/* Title Section */}
       <div className="text-center text-white mb-20">
         <h1 className="text-3xl font-bold mt-3">STOK</h1>

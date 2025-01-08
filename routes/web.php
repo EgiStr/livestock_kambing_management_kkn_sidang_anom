@@ -16,9 +16,8 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Home');
-});
+
+Route::get('/', [FarmController::class, 'home'])->name('Home');
 
 Route::get('/tentang', function () {
     return Inertia::render('Tentang');

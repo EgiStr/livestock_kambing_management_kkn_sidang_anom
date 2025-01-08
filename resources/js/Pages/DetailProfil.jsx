@@ -53,17 +53,21 @@ const DetailProfil = ({ user }) => {
             {user.farms.map((item) => (
               <div
                 key={item.id}
-                className="bg-white rounded-md shadow-md overflow-hidden"
+                className="bg-white rounded-md shadow-md overflow-hidden flex flex-col"
               >
                 {/* Image Placeholder */}
                 <div className="bg-gray-200">
-                  <img src="https://placehold.co/400x300" alt="Peternakan" />
+                  <img
+                    src="https://placehold.co/400x300"
+                    alt="Peternakan"
+                    className="w-full h-[200px] object-cover"
+                  />
                 </div>
 
                 {/* Card Content */}
-                <div className="p-2">
+                <div className="p-2 flex flex-col flex-grow">
                   <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center text-sm text-green font-bold bg-green px-3 py-1 rounded-full text-white mt-2">
+                    <div className="flex items-center text-sm text-white font-bold bg-green px-3 py-1 rounded-full mt-2">
                       <span className="text-white rounded-full mr-1 flex items-center justify-center text-xs">
                         <User size={16} />
                       </span>
@@ -78,25 +82,32 @@ const DetailProfil = ({ user }) => {
                     </div>
                   </div>
 
-                  <h2 className="text-gray-800 text-left text-sm font-semibold mb-4 mt-3">
-                    {item.description}
+                  {/* Description */}
+                  <h2 className="text-gray-800 text-left text-sm font-semibold mb-2 mt-3">
+                    {item.description
+                      ? item.description.slice(0, 50) +
+                        (item.description.length > 100 ? "..." : "")
+                      : "Tidak ada deskripsi"}
                   </h2>
 
-                  <h2 className="text-green text-left -mt-2 text-sm font-semibold mb-4">
-                    Kapasitas : <span className="text-black">{item.capacity} Kepala</span>
+                  {/* Capacity */}
+                  <h2 className="text-green text-left text-sm font-semibold mb-6">
+                    Kapasitas: <span className="text-black">{item.capacity} Kepala</span>
                   </h2>
 
-                  <Link
-                    href={`/detailternak/${item.id}`}
-                    className="text-green mt-6 text-sm font-semibold hover:underline flex items-center"
-                  >
-                    Lihat Detail
-                  </Link>
+                  {/* Detail Link */}
+                  <div className="mt-auto">
+                    <Link
+                      href={`/detailternak/${item.id}`}
+                      className="text-green text-sm font-semibold hover:underline flex items-center"
+                    >
+                      Lihat Detail
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
-
         </div>
       </div>
     </Layout>

@@ -24,51 +24,59 @@ const Profil = ({ users }) => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-5 md:px-[10px]">
             {users.map((user) => (
-                <div
-                  key={user.id}
-                  className="bg-white rounded-lg shadow-md overflow-hidden"
-                >
-                  {/* Image Placeholder */}
-                  <div className="bg-gray-200">
-                    <img 
-                      // src={user.image_url} 
-                      src="https://placehold.co/600x400" 
-                      className="w-full h-[200px] object-cover"
-                    />
+              <div
+                key={user.id}
+                className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col"
+              >
+                {/* Image Placeholder */}
+                <div className="bg-gray-200">
+                  <img
+                    src="https://placehold.co/600x400"
+                    alt="User"
+                    className="w-full h-[200px] object-cover"
+                  />
+                </div>
+
+                {/* Card Content */}
+                <div className="p-4 flex flex-col flex-grow">
+                  {/* Author */}
+                  <div className="flex items-center mb-2">
+                    <div className="flex items-center text-sm text-white font-bold bg-green px-3 py-1 rounded-full">
+                      <span className="text-white rounded-full mr-1 flex items-center justify-center text-xs">
+                        <User size={16} />
+                      </span>
+                      {user.fullname}
+                    </div>
                   </div>
 
-                  {/* Card Content */}
-                  <div className="p-4">
-                    {/* Author and Rating */}
-                    <div className="flex items-center mb-2">
-                    <div className="flex items-center text-sm text-green font-bold bg-green px-3 py-1 rounded-full text-white">
-                        <span className="text-white rounded-full mr-1 flex items-center justify-center text-xs">
-                          <User size={16} />
-                        </span>
-                        {user.fullname }
-                      </div>
-                    </div>
+                  {/* Title */}
+                  <h2 className="text-gray-800 text-sm font-semibold mb-4">{user.name}</h2>
 
-                    {/* Title */}
-                    <h2 className="text-gray-800 text-sm font-semibold mb-4">
-                      {user.name}
-                    </h2>
+                  {/* Bio and Contact */}
+                  <div className="text-sm text-gray-600 mb-4 flex-grow">
+                    <p>
+                      {user.bio
+                        ? user.bio.slice(0, 50) + (user.bio.length > 50 ? "..." : "")
+                        : "Tidak ada deskripsi"}
+                    </p>
+                    <p className="text-black font-semibold mt-2 mb-5">
+                      Hubungi: <span className="text-HoverGreen">{user.phone_number}</span>
+                    </p>
+                  </div>
 
-                    <div className="text-sm text-gray-600 mb-4">
-                      <p>{user.bio ? user.bio.slice(0, 50) + (user.bio.length > 50 ? '...' : '') : "Tidak ada deskripsi"}</p>
-                      <p className="text-black font-semibold mt-2">Hubungi : <span className="text-HoverGreen">{user.phone_number}</span></p>
-                    </div>
-
-                    {/* Detail Link */}
+                  {/* Detail Link */}
+                  <div className="mt-auto">
                     <Link
                       href={`/detailprofil/${user.id}`}
-                      className="text-green text-sm font-semibold hover:underline flex items-center mt-5">
-                      Lihat Detail 
+                      className="text-green text-sm font-semibold hover:underline flex items-center"
+                    >
+                      Lihat Detail
                     </Link>
                   </div>
                 </div>
-              ))}
               </div>
+            ))}
+          </div>
         </div>
       </div>
       </Layout>
