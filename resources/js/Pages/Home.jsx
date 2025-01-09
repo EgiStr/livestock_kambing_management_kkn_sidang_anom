@@ -22,7 +22,7 @@ const Home = (farms) => {
       {/* Header */}
       <div className="text-center mb-[90px]">
         <h1 className="text-xl md:text-3xl font-bold text-HoverGreen">
-          Profil Peternakan Di Desa Sindang Anom
+          Peternakan Di Desa Sindang Anom
         </h1>
         <p className="text-green-500 text-md font-semibold mt-1">
           Lihat Semua Peternakan disini
