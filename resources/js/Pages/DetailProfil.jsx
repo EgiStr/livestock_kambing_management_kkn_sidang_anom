@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../Layouts/Layout";
 import { Link } from "@inertiajs/inertia-react";
-import { User } from "lucide-react";
+import { User, Star, MapPin, Phone } from 'lucide-react'
 
 
 const DetailProfil = ({ user }) => {
@@ -47,68 +47,67 @@ const DetailProfil = ({ user }) => {
 
 
         {/* Peternakan Section */}
-        <div className="mt-20 text-center">
-          <h1 className="font-bold text-2xl text-green">Peternakan Bapak {user.fullname}</h1>
-          <div className="grid grid-cols-3 gap-6 mt-20">
-            {user.farms.map((item) => (
-              <div
-                key={item.id}
-                className="bg-white rounded-md shadow-md overflow-hidden flex flex-col"
-              >
-                {/* Image Placeholder */}
-                <div className="bg-gray-200">
-                  <img
-                    src="https://placehold.co/400x300"
-                    alt="Peternakan"
-                    className="w-full h-[200px] object-cover"
-                  />
-                </div>
-
-                {/* Card Content */}
-                <div className="p-2 flex flex-col flex-grow">
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center text-sm text-white font-bold bg-green px-3 py-1 rounded-full mt-2">
-                      <span className="text-white rounded-full mr-1 flex items-center justify-center text-xs">
-                        <User size={16} />
-                      </span>
-                      {user.fullname}
-                    </div>
-                    <div className="text-yellow-500 flex space-x-1">
-                      {Array(5)
-                        .fill(0)
-                        .map((_, i) => (
-                          <span key={i}>⭐</span>
-                        ))}
+          <div className="text-center mb-8 mt-20">
+            <h1 className="font-bold text-3xl text-green-600 mb-10">Peternakan {user.fullname}</h1>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {user.farms.map((item) => (
+                <div
+                  key={item.id}
+                  className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col transition duration-300 hover:shadow-lg"
+                >
+                  {/* Farm Image */}
+                  <div className="relative h-48">
+                    <img
+                      src="https://placehold.co/400x300"
+                      alt="Peternakan"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute top-0 left-0 m-2 bg-green text-white px-2 py-1 rounded-full flex items-center space-x-1">
+                      <User size={14} />
+                      <span className="text-xs font-semibold">{user.fullname}</span>
                     </div>
                   </div>
 
-                  {/* Description */}
-                  <h2 className="text-gray-800 text-left text-sm font-semibold mb-2 mt-3">
-                    {item.description
-                      ? item.description.slice(0, 50) +
-                        (item.description.length > 100 ? "..." : "")
-                      : "Tidak ada deskripsi"}
-                  </h2>
+                  {/* Card Content */}
+                  <div className="p-4 flex flex-col flex-grow">
+                    <div className="flex items-center justify-between mb-2">
+                      <h2 className="text-lg font-semibold text-gray-800">{item.name}</h2>
+                      <div className="text-yellow-500 flex space-x-1">
+                        {Array(5)
+                          .fill(0)
+                          .map((_, i) => (
+                            <span key={i}>⭐</span>
+                          ))}
+                      </div>
+                    </div>
 
-                  {/* Capacity */}
-                  <h2 className="text-green text-left text-sm font-semibold mb-6">
-                    Kapasitas: <span className="text-black">{item.capacity} Kepala</span>
-                  </h2>
+                    {/* Description */}
+                    <p className="text-gray-600 text-sm text-left mb-4">
+                      {item.description
+                        ? item.description.slice(0, 100) +
+                          (item.description.length > 100 ? "..." : "")
+                        : "Tidak ada deskripsi"}
+                    </p>
 
-                  {/* Detail Link */}
-                  <div className="mt-auto">
-                    <Link
-                      href={`/detailternak/${item.id}`}
-                      className="text-green text-sm font-semibold hover:underline flex items-center"
-                    >
-                      Lihat Detail
-                    </Link>
+                    {/* Capacity */}
+                    <p className="text-green text-sm text-left font-semibold mb-4">
+                      Kapasitas: <span className="text-gray-700">{item.capacity} Kepala</span>
+                    </p>
+
+                    {/* Detail Link */}
+                    <div className="mt-auto">
+                      <Link
+                        href={`/detailternak/${item.id}`}
+                        className="text-green text-sm font-semibold hover:underline flex items-center"
+                      >
+                        Lihat Detail
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
       </div>
     </Layout>
   );
